@@ -1,24 +1,25 @@
 package com.example.demo2.bean;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import java.util.List;
 
+@Entity
 public class DeclarationTva {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String ref;
     private double tvacollecter;
+    @OneToMany
+    private List<DeclarationFacture> declarationFactures ;
     private double tvaperdue;
     private double difftva;
     private double annee;
     private double mois;
     private double trim;
-    @ManyToOne
+@ManyToOne
     private Societe societe;
-    @ManyToOne
+@ManyToOne
     private TypeDeclarationTva typeDeclarationTva;
 
     public Long getId() {

@@ -1,9 +1,9 @@
 package com.example.demo2.bean;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
+@Entity
 public class Tva {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -11,7 +11,8 @@ public class Tva {
     private String ref;
     private String libelle;
     private double valeur ;
-
+@OneToMany
+private List<DeclarationFacture> declarationFactures ;
     public Long getId() {
         return id;
     }

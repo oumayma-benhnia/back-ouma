@@ -1,9 +1,9 @@
 package com.example.demo2.bean;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
+@Entity
 public class TypeDeclarationTva {
 
     @Id
@@ -11,6 +11,8 @@ public class TypeDeclarationTva {
     private Long id;
     private String ref;
     private String libelle;
+    @OneToMany
+    private List<DeclarationTva> declarationTvas ;
 
     public Long getId() {
         return id;

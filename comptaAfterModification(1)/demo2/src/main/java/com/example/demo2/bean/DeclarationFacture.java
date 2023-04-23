@@ -13,11 +13,21 @@ public class DeclarationFacture {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private Date dateoperation ;
+
+    public Date getDateoperation() {
+        return dateoperation;
+    }
+
+    public void setDateoperation(Date dateoperation) {
+        this.dateoperation = dateoperation;
+    }
+
     private String ref;
     private String libelle;
     private double montantHorsTaxe;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private Date dateOperation;
+    private Date dateOperatin;
     @ManyToOne
     private DemandeDeclaration demandeDeclaration;
 
@@ -57,7 +67,7 @@ public class DeclarationFacture {
     @ManyToOne
     private DeclarationIR declarationIR;
     @ManyToOne
-    private Tva tva;
+     private Tva tva;
     private double montantHT;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dateFacture;
@@ -75,13 +85,9 @@ public class DeclarationFacture {
         this.montantHorsTaxe = montantHorsTaxe;
     }
 
-    public Date getDateOperation() {
-        return dateOperation;
-    }
 
-    public void setDateOperation(Date dateOperation) {
-        this.dateOperation = dateOperation;
-    }
+
+
 
     public double getAnnee() {
         return annee;

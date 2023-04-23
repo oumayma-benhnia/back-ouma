@@ -90,9 +90,10 @@ public class DeclarationFactureService {
 
             declarationFacture.setMontantTVA((declarationFacture.getMontantHorsTaxe() * declarationFacture.getTva().getValeur()) /100);
             declarationFacture.setMontantTTC(declarationFacture.getMontantHorsTaxe() + declarationFacture.getMontantTVA());
-            declarationFacture.setTrim(Trouvertrim(declarationFacture.getDateOperation()));
-            declarationFacture.setMois(declarationFacture.getDateOperation().getMonth() +1);
-            declarationFacture.setAnnee(declarationFacture.getDateOperation().getYear() + 1900);
+            declarationFacture.setTrim(Trouvertrim(declarationFacture.getDateoperation()));
+            declarationFacture.setMois(declarationFacture.getDateoperation().getMonth() +1);
+            declarationFacture.setAnnee(declarationFacture.getDateoperation().getYear() + 1900);
+
             declarationFactureDao.save(declarationFacture);
             return 1;
         }}
